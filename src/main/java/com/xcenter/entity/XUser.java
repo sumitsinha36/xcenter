@@ -16,6 +16,8 @@ public class XUser {
 	
 	private Role role;
 	
+	private String email;
+	
 	private String hashPassword;
 
 	public XUser() {}
@@ -24,6 +26,6 @@ public class XUser {
 	public String toString() {
 		return "XUser [mobile=" + mobile + ", fullName=" + fullName
 				+ ", profilePicture=" + profilePicture + ", role=" + role
-				+ ", hashPassword=" + hashPassword + "]";
+				+ ", email=" + email + ", hashPassword=" + hashPassword + "]";
 	}
 }
