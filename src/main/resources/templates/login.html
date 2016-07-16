@@ -3,25 +3,41 @@
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Spring Security Example</title>
-<link type="text/css"  href="../static/style/xcenter.css" th:href="@{/style/xcenter.css}" rel="stylesheet" media="screen"/>
+<link type="text/css" href="../static/style/xcenter.css"
+	th:href="@{/style/xcenter.css}" rel="stylesheet" media="screen" />
+
+<script>
+	window.onload = function() {
+		showTime();
+	};
+
+	var showTime = function() {
+		document.getElementById("cur_time").innerHTML = new Date();
+		setTimeout(showTime, 500);
+	};
+</script>
 </head>
 <body>
 	<div th:if="${param.error}">Invalid username and password.</div>
 	<div th:if="${param.logout}">You have been logged out.</div>
-	<form class='login_form' th:action="@{/login}" method="post">
-		<div>
-			<label> User Name : <input type="text" name="username" />
-			</label>
+	<div class="login_form_wrapper">
+		<div class="login_title">
+			Authentication<sub style='font-size: 0.6em; color: #999999;'>XCenter</sub>
+			<div id='cur_time' class="current_time"></div>
 		</div>
-		<div>
-			<label> Password: <input type="password" name="password" />
-			</label>
-		</div>
-		<div>
-			<input type="submit" value="Sign In" />
-		</div>
-	</form>
+		<form class='login_form' th:action="@{/login}" method="post">
+			<div>
+				<input type="text" name="username" placeholder="User Name" />
+			</div>
+			<div>
+				<input type="password" name="password" placeholder="password" />
+			</div>
+			<div>
+				<input type="submit" value="Sign In" />
+			</div>
+		</form>
+	</div>
 </body>
 </html>

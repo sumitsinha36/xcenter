@@ -5,7 +5,52 @@ html, body {
 	width: 100%;
 }
 
+.login_form_wrapper {
+	width: 450px;
+	top: 29%;
+    position: absolute;
+    left: 32%;
+}
+
+.login_title {
+	background-color: #00997F;
+    width: 100%;
+    height: 24px;
+    padding: 10px;
+    z-index: 10;
+    top: 0px;
+    position: absolute;
+    color: #FFF;
+    text-shadow: 0px 1px 1px #000000;
+    font-weight: bold;
+    letter-spacing: 0.2em;
+}
+
 .login_form {
 	margin: 0 auto;
-	width: 300px;
+	width: 100%;
+	padding: 10px;
+	box-shadow: 0px 0px 1px #000000;
+	padding-top: 50px;
+}
+
+.login_form div {
+	padding: 10px;
+}
+
+.login_form div input {
+	width: 200px;
+    height: 20px;
+    border-radius: 3px;
+    border: 1px solid #999999;
+    padding: 5px;
+}
+
+.login_form div input[type="submit"] {
+	width: 150px;
+	height: 35px;
+	background-color: #0099CC;
+	border: none;
+	padding: 10px;
+	color: #FFFFFF;
 }
