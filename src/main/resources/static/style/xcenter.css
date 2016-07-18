@@ -1,29 +1,51 @@
 @CHARSET "ISO-8859-1";
+
 html, body {
 	margin: 0;
 	height: 100%;
 	width: 100%;
 }
 
+.u_icon {
+	position: relative;
+	left: 30px;
+	top: 6px;
+}
+
+.p_icon {
+	position: relative;
+	left: 30px;
+	top: 6px;
+}
+
 .login_form_wrapper {
-	width: 450px;
+	width: 500px;
 	top: 29%;
-    position: absolute;
-    left: 32%;
+	position: absolute;
+	left: 32%;
 }
 
 .login_title {
 	background-color: #00997F;
-    width: 100%;
-    height: 24px;
-    padding: 10px;
-    z-index: 10;
-    top: 0px;
-    position: absolute;
-    color: #FFF;
-    text-shadow: 0px 1px 1px #000000;
-    font-weight: bold;
-    letter-spacing: 0.2em;
+	width: 100%;
+	height: 45px;
+	padding: 10px;
+	z-index: 10;
+	top: 0px;
+	position: absolute;
+	color: #FFF;
+	text-shadow: 0px 1px 1px #000000;
+	font-weight: bold;
+	letter-spacing: 0.2em;
+}
+
+.current_time:BEFORE {
+	content: '\a';
+	white-space: pre;
+}
+
+.current_time {
+	font-size: 0.7em;
 }
 
 .login_form {
@@ -31,7 +53,7 @@ html, body {
 	width: 100%;
 	padding: 10px;
 	box-shadow: 0px 0px 1px #000000;
-	padding-top: 50px;
+	padding-top: 70px;
 }
 
 .login_form div {
@@ -39,11 +61,12 @@ html, body {
 }
 
 .login_form div input {
-	width: 200px;
-    height: 20px;
-    border-radius: 3px;
-    border: 1px solid #999999;
-    padding: 5px;
+	width: 300px;
+	height: 20px;
+	border-radius: 3px;
+	border: 1px solid #999999;
+	padding: 5px;
+	padding-left: 30px;
 }
 
 .login_form div input[type="submit"] {
@@ -53,4 +76,39 @@ html, body {
 	border: none;
 	padding: 10px;
 	color: #FFFFFF;
+	left: 30px;
+	position: relative;
+}
+
+.error_message {
+	background: rgba(236, 108, 108, 0.55);
+	width: 100%;
+	padding: 10px;
+	letter-spacing: 0.1em; font-size : 1.1em; font-family : monospace;
+	-webkit-animation: error 5s; /* Chrome, Safari, Opera */
+	animation: error 5s;
+	font-size: 1.1em;
+	font-family: monospace;
+}
+
+@
+-webkit-keyframes error {
+	from {opacity: 0
+}
+
+to {
+	opacity: 1
+}
+
+}
+
+/* Standard syntax */
+@
+keyframes error {
+	from {opacity: 0
+}
+
+to {
+	opacity: 1
+}
 }
