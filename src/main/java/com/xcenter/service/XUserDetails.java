@@ -8,15 +8,15 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.xcenter.entity.XUser;
+import com.xcenter.entity.Xuser;
 import com.xcenter.role.Role;
 
 public class XUserDetails implements UserDetails {
 
 	private static final long serialVersionUID = -4458281580086062029L;
-	XUser user;
+	Xuser user;
 
-	public XUserDetails(XUser user) {
+	public XUserDetails(Xuser user) {
 		this.user = user;
 	}
 

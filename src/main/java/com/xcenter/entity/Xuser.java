@@ -3,13 +3,16 @@ package com.xcenter.entity;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.xcenter.role.Role;
 
-
-public class XUser {
+@Document
+public class Xuser {
 
 	@Id
+	private String id;
+	
 	private String mobile;
 	
 	private String fullName;
@@ -22,7 +25,7 @@ public class XUser {
 	
 	private String hashPassword;
 
-	public XUser() {}
+	public Xuser() {}
 	
 	/**
 	 * @return the mobile
