@@ -1,39 +1,26 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	data-ng-app='xcenter' data-ng-init="appdrawer = 'passive'">
 <head>
 <title>XCenter Administrator</title>
 <link type="text/css" href="../static/style/xcenter.css"
 	th:href="@{/style/xcenter.css}" rel="stylesheet" media="screen" />
+
+<meta name="_csrf" th:content="${_csrf.token}"></meta>
+<meta name="_csrf_header" th:content="${_csrf.headerName}"></meta>
 </head>
 <body>
 	<div th:replace="fragments/adminsidebar :: adminheader"></div>
 	<div th:replace="fragments/adminsidebar :: adminsidebar"></div>
-	
-	
-	<script>
-		dojoConfig = {
-			parseOnLoad : true,
-			async : true
-		};
+
+	<script
+		th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js}">
+		
 	</script>
-	<script th:src="@{/js/dojo/dojo.js}"></script>
-	<script>
-		require(["dojo/parser", "dojo/ready", "dojo/dom", "dojo/dom-class", "dojo/on"], function(parser, ready, dom, domClass, on) {
-			ready(function() {
-				on(dom.byId("opensidebar"), "click", function() {
-					if(domClass.contains(dom.byId("adminsidebar"), "admin_sidebar active")) {
-						domClass.remove(dom.byId("adminsidebar"), "admin_sidebar active");
-						domClass.add(dom.byId("adminsidebar"), "admin_sidebar passive");
-					} else {
-						domClass.remove(dom.byId("adminsidebar"), "admin_sidebar passive");
-						domClass.add(dom.byId("adminsidebar"), "admin_sidebar active");
-					}
-				});
-					
-			});
-		});
-	</script>
+	<script
+		th:src="@{https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js}"></script>
+	<script th:src="@{/js/application.js}"></script>
 </body>
 </html>

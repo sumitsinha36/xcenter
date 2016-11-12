@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <body>
-	<div class="admin-header" th:fragment="adminheader">
+	<div class="admin-header" data-ng-click="appdrawer={'active':'passive', 'passive':'active'}[appdrawer]" th:fragment="adminheader">
 	<div id="opensidebar" class='open-sidebar'>
 	<svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
     	<path d="M0 0h24v24H0z" fill="none"/>
@@ -10,12 +10,10 @@
 	</div>
 	</div>
 
-	<ul id='adminsidebar' class='admin_sidebar passive' th:fragment="adminsidebar">
-		<li> User
-			<ul>
-				<li>Add User</li>
-			</ul>
-		</li>
+	<ul id='adminsidebar' class='admin_sidebar {{appdrawer}}' th:fragment="adminsidebar">
+		<app-drawer></app-drawer>
 	</ul>
+	
+	<div layout:fragment="content"></div>
 </body>
 </html>
