@@ -10,9 +10,9 @@
 	</div>
 	</div>
 
-	<ul id='adminsidebar' class='admin_sidebar {{appdrawer}}' th:fragment="adminsidebar">
-		<app-drawer></app-drawer>
-	</ul>
+	<div id='adminsidebar' class='admin_sidebar' th:fragment="adminsidebar">
+		<div data-dojo-type='app/display/Menu' data-dojo-props="type : 'admin'"></div>
+	</div>
 	
 	<div layout:fragment="content"></div>
 </body>

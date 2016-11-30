@@ -118,7 +118,7 @@ to {
 
 /* admin side panel*/
 .admin_sidebar {
-	width: 200px;
+	width: 15%;
 	display: block;
 	height: 92%;
 	background-color: #0099AA;
@@ -127,14 +127,20 @@ to {
 	border: none;
 	box-shadow: 0px 3px 1px #000;
 	margin: 0;
-	left: -250px;
 	position: relative;
 	transition: all 0.1s ease-out;
 	-webkit-transition: all 0.1s ease-out;
 	-moz-transition: all 0.1s ease-out;
 	-o-transition: all 0.1s ease-out;
+	float: left;
 }
 
+.admin_sidebar > div > div {
+	
+	text-align: center;
+    padding: 10px;
+    background: #098989;
+}
 .admin-header {
 	width: 100%;
 	height: 8%; min-height : 50px;
@@ -157,4 +163,12 @@ to {
 .passive {
 	left: -250px;
 	position: relative;
+}
+
+.dijitContentPane {
+	
+	width: 85%;
+    float: right;
+ 	background: #3F51B5;
+ 	height: 100%;
 }

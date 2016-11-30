@@ -8,19 +8,24 @@
 <link type="text/css" href="../static/style/xcenter.css"
 	th:href="@{/style/xcenter.css}" rel="stylesheet" media="screen" />
 
-<meta name="_csrf" th:content="${_csrf.token}"></meta>
+<meta id='csrf' name="_csrf" th:content="${_csrf.token}"></meta>
 <meta name="_csrf_header" th:content="${_csrf.headerName}"></meta>
 </head>
 <body>
 	<div th:replace="fragments/adminsidebar :: adminheader"></div>
 	<div th:replace="fragments/adminsidebar :: adminsidebar"></div>
-
-	<script
-		th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js}">
+	<div data-dojo-type='app/display/UIRouter'></div>
+<script>
+	dojoConfig = {
 		
-	</script>
-	<script
-		th:src="@{https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js}"></script>
-	<script th:src="@{/js/application.js}"></script>
+			async : true,
+			
+			parseOnLoad : true
+	};
+</script>	
+<script th:src="@{/js/dojo/dojo.js}"></script>
+<script>
+	require(['dojo/parser', 'app/display/Menu', 'app/display/UIRouter']);
+</script>
 </body>
 </html>
