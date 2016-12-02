@@ -16,6 +16,8 @@ public class AdminMenu implements Serializable{
 	private String name;
 	
 	private String template;
+	
+	private String style;
 
 	/**
 	 * @return the id
@@ -56,6 +58,27 @@ public class AdminMenu implements Serializable{
 	 * @param url the url to set
 	 */
 	public void setUrl(String template) {
+		this.template = template;
+	}
+
+	/**
+	 * @return the style
+	 */
+	public String getStyle() {
+		return style;
+	}
+
+	/**
+	 * @param style the style to set
+	 */
+	public void setStyle(String style) {
+		this.style = style;
+	}
+
+	/**
+	 * @param template the template to set
+	 */
+	public void setTemplate(String template) {
 		this.template = template;
 	}
 

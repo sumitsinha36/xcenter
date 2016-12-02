@@ -9,8 +9,10 @@ define(['dojo/_base/declare',
         'dojo/_base/array',
         'dojo/html',
         'dojo/_base/lang',
-        'dojo/on'
-        ], function(declare, _WidgetBase, _TemplatedMixin, request, topic, domConstruct, dom, domAttr, array, html, lang, on) {
+        'dojo/on',
+        'dojo/dom-style',
+        'dojo/parser'
+        ], function(declare, _WidgetBase, _TemplatedMixin, request, topic, domConstruct, dom, domAttr, array, html, lang, on, domStyle, parser) {
 	
 		return declare('app/display/Menu', [_WidgetBase, _TemplatedMixin], {
 			
@@ -19,6 +21,8 @@ define(['dojo/_base/declare',
 							 "</div>"
 			
 			, userClass : ''
+				
+			, activeMenu : []
 				
 			, subscriptions : []
 		
@@ -61,13 +65,33 @@ define(['dojo/_base/declare',
 					}
 				}).then(function(data) {
 					
+					var t = [];
+					
 					array.forEach(data.menu, function(menuData) {
 						
-						var node = domConstruct.toDom("<div>" + menuData.name + "</div>");
+						var node = domConstruct.toDom("<div aria-hidden='true' class='menu_item'><div  class='" + menuData.style +"'></div>" + menuData.name + "</div>");
 						
-						html.set(that.menu, node, {parseContent: true});
+						if(t.length == 0) {
+
+							html.set(that.menu, node, {parseContent: true});
+							t = that.menu.childNodes;
+						} else {
+							
+							var s = domConstruct.toDom("");
+							array.forEach(t, function(n) {
+								
+								s.appendChild(n);
+							});
+							s.appendChild(node);
+							
+							html.set(that.menu, s, {parseContent: true});
+							t = that.menu.childNodes;
+						}
 						
-						on(node, "click", lang.partial(that._click, menuData.template));
+							
+						
+						
+						on(node, "click", lang.partial(that._click, [menuData.template, that]));
 					});
 					
 				}, function(error) {
@@ -75,9 +99,19 @@ define(['dojo/_base/declare',
 				});
 			}
 			
-			, _click : function(url, e) {
+			, _click : function(data, e) {
 				
-				topic.publish("Menu/UIRouter/Display", [url]);
+				if(data[1].activeMenu.length > 0) {
+					
+					var previousNode = data[1].activeMenu.pop();
+					domStyle.set(previousNode, 'background', '#222222');
+				}
+				
+				domStyle.set(e.target, 'background', '#FF5722');
+				
+				data[1].activeMenu.push(e.target);
+				
+				topic.publish("Menu/UIRouter/Display", [data[0]]);
 			}
 			
 		});
